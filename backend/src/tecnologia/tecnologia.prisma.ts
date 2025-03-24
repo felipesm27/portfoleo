@@ -3,9 +3,17 @@ import { Injectable } from "@nestjs/common"
 import { PrismaProvider } from "src/db/prisma.provider"
 
 @Injectable()
-export class TecnologiaProvider {
+export class TecnologiaPrisma {
 	constructor(private readonly prisma: PrismaProvider) {}
 	async findAll(): Promise<Tecnologia[]> {
 		return this.prisma.tecnologia.findMany()
+	}
+
+	async obterDestaques(): Promise<Tecnologia[]> {
+		return this.prisma.tecnologia.findMany({
+			where: {
+				destaque: true,
+			},
+		})
 	}
 }

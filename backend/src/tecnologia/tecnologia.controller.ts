@@ -1,12 +1,17 @@
 import { Controller, Get } from "@nestjs/common"
 import { Tecnologia } from "@core"
-import { TecnologiaProvider } from "./tecnologia.provider"
+import { TecnologiaPrisma } from "./tecnologia.prisma"
 
 @Controller("tecnologias")
 export class TecnologiaController {
-	constructor(private readonly repo: TecnologiaProvider) {}
+	constructor(private readonly repo: TecnologiaPrisma) {}
 	@Get()
 	async findAll(): Promise<Tecnologia[]> {
 		return this.repo.findAll()
+	}
+
+	@Get("destaques")
+	async obterDestaques(): Promise<Tecnologia[]> {
+		return this.repo.obterDestaques()
 	}
 }
