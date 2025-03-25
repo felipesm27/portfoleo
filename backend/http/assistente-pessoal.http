@@ -1,0 +1,9 @@
+POST https://fmtecdev.app.n8n.cloud/webhook/assistente-pessoal
+Content-Type: application/json
+
+{
+  "chatId": "12345665874584",
+  "mensagem": "o felipe trabalha com jujubas?"
+}
+
+ 
