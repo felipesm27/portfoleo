@@ -5,9 +5,13 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "**",
+				hostname: "**", // Mantém o que você já tinha (não recomendado, mas possível com fallback em dev)
 			},
-		], // Add the domain of your images
+			{
+				protocol: "https",
+				hostname: "github.com",
+			},
+		],
 	},
 }
 
